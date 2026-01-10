@@ -102,9 +102,9 @@
 
 / {
     behaviors {
-        hm_1: hm_1 {
+        ht_1: ht_1 {
             compatible = "zmk,behavior-hold-tap";
-            label = "HM_1";
+            label = "HT_1";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <180>;
@@ -133,7 +133,34 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_DOT";
             #binding-cells = <0>;
-            bindings = <&kp DE_DQT>, <&hm_1 DE_EXCLAMATION DE_QUESTION>;
+            bindings = <&kp DE_DQT>, <&ht_1 DE_EXCLAMATION DE_QUESTION>;
+        };
+
+        morph_brace: morph_brace {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MORPH_BRACE";
+            bindings = <&kp DE_LEFT_BRACE>, <&kp DE_RIGHT_BRACE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        morph_paran: morph_paran {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MORPH_PARAN";
+            bindings = <&kp DE_LEFT_PARENTHESIS>, <&kp DE_RIGHT_PARENTHESIS>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        moprh_bracket: moprh_bracket {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MOPRH_BRACKET";
+            bindings = <&kp DE_LEFT_BRACKET>, <&kp DE_RIGHT_BRACKET>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
         };
     };
 
@@ -230,6 +257,34 @@
 
             label = "REDO";
         };
+
+        find: find {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_tap>,
+                <&kp DE_F>,
+                <&macro_release>,
+                <&kp LCTRL>;
+
+            label = "FIND";
+        };
+
+        find_and_replace: find_and_replace {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_tap>,
+                <&kp DE_H>,
+                <&macro_release>,
+                <&kp LCTRL>;
+
+            label = "FIND_AND_REPLACE";
+        };
     };
 
     keymap {
@@ -238,30 +293,30 @@
         default_layer {
             display-name = "Base";
             bindings = <
-&kp TAB    &kp DE_Q         &kp DE_W         &kp DE_E          &kp DE_R          &kp DE_T         &td_z_sz      &td_u_ue          &kp DE_I          &kp DE_O         &kp DE_P                &kp DE_U_UMLAUT
-&kp LCTRL  &hm_1 LGUI DE_A  &hm_1 LALT DE_S  &hm_1 LCTRL DE_D  &hm_1 LSHFT DE_F  &kp DE_G         &kp DE_H      &hm_1 RSHFT DE_J  &hm_1 RCTRL DE_K  &hm_1 RALT DE_L  &hm_1 RGUI DE_O_UMLAUT  &kp DE_A_UMLAUT
-&kp LSHFT  &kp DE_Y         &kp DE_X         &kp DE_C          &kp DE_V          &kp DE_B         &kp DE_N      &kp DE_M          &kp DE_COMMA      &td_dot          &kp DE_MINUS            &kp ESC
-                                             &kp ESC           &mo 1             &kp BACKSPACE    &kp DE_SPACE  &mo 2             &kp TAB
+&none  &kp DE_Q         &kp DE_W         &kp DE_E          &kp DE_R          &kp DE_T         &td_z_sz      &td_u_ue          &kp DE_I          &kp DE_O         &kp DE_P                &kp DE_U_UMLAUT
+&none  &ht_1 LGUI DE_A  &ht_1 LALT DE_S  &ht_1 LCTRL DE_D  &ht_1 LSHFT DE_F  &kp DE_G         &kp DE_H      &ht_1 RSHFT DE_J  &ht_1 RCTRL DE_K  &ht_1 RALT DE_L  &ht_1 RGUI DE_O_UMLAUT  &kp DE_A_UMLAUT
+&none  &kp DE_Y         &kp DE_X         &kp DE_C          &kp DE_V          &kp DE_B         &kp DE_N      &kp DE_M          &kp DE_COMMA      &td_dot          &kp DE_MINUS            &none
+                                         &kp ESC           &mo 1             &kp BACKSPACE    &kp DE_SPACE  &mo 2             &kp TAB
             >;
         };
 
         nav {
             display-name = "nav";
             bindings = <
-&none  &kp DE_N1  &kp DE_N2  &kp DE_N3  &kp DE_N4   &kp DE_N5    &kp DE_N6     &kp DE_N7  &kp DE_N8  &kp DE_N9  &kp DE_N0      &none
-&none  &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHIFT  &none        &kp LEFT      &kp DOWN   &kp UP     &kp RIGHT  &kp BACKSPACE  &none
-&none  &none      &none      &none      &none       &none        &none         &none      &none      &none      &none          &none
-                             &none      &none       &none        &kp DE_SPACE  &kp RALT   &kp TAB
+&none  &kp DE_N1    &kp DE_N2  &kp DE_N3  &kp DE_N4   &kp DE_N5    &kp DE_N6     &kp DE_N7   &kp DE_N8  &kp DE_N9  &kp DE_N0      &none
+&none  &kp LGUI     &kp LALT   &kp LCTRL  &kp LSHIFT  &undo        &kp LEFT      &kp DOWN    &kp UP     &kp RIGHT  &kp BACKSPACE  &none
+&none  &select_all  &cut       &paste     &copy       &redo        &kp HOME      &kp PG_DN   &kp PG_UP  &kp END    &none          &none
+                               &none      &none       &none        &kp DE_SPACE  &kp LSHIFT  &kp TAB
             >;
         };
 
         sym {
             display-name = "sym";
             bindings = <
-&kp TAB    &kp DE_EXCL  &kp DE_DQT  &kp DE_SECT  &kp DE_DLLR  &kp DE_PRCNT    &none  &none       &none      &none          &none  &none
-&kp LCTRL  &none        &none       &none        &none        &none           &none  &kp LSHIFT  &kp LCTRL  &kp RIGHT_ALT  &none  &none
-&kp LSHFT  &none        &none       &none        &none        &none           &none  &none       &none      &none          &none  &none
-                                    &kp LGUI     &none        &kp DE_SPACE    &none  &none       &none
+&none  &none  &none  &none           &none         &none           &none  &none       &none      &none          &none  &none
+&none  &none  &none  &moprh_bracket  &morph_brace  &morph_paran    &none  &kp LSHIFT  &kp LCTRL  &kp RIGHT_ALT  &none  &none
+&none  &none  &none  &none           &none         &none           &none  &none       &none      &none          &none  &none
+                     &none           &none         &kp DE_SPACE    &none  &none       &none
             >;
         };
 
