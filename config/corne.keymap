@@ -7,226 +7,39 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include "keys_de.h"
 
 / {
-        behaviors {
-                /* =========================================================================
-                 * DE-visible aliases (what Windows DE produces)
-                 * Goal: You can build layouts/chords using DE_* names only.
-                 * ========================================================================= */
-
-                /* -------------------- 1) Modifiers / control keys (100% coverage) -------------------- */
-                DE_ESC:   de_esc   { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp ESC>; };
-                DE_TAB:   de_tab   { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp TAB>; };
-                DE_CAPS:  de_caps  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp CAPS>; };
-                DE_LSFT:  de_lsft  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp LSHFT>; };
-                DE_RSFT:  de_rsft  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp RSHFT>; };
-                DE_LCTL:  de_lctl  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp LCTRL>; };
-                DE_RCTL:  de_rctl  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp RCTRL>; };
-                DE_LALT:  de_lalt  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp LALT>; };
-                DE_RALT:  de_ralt  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp RALT>; }; /* AltGr */
-                DE_LGUI:  de_lgui  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp LGUI>; };
-                DE_RGUI:  de_rgui  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp RGUI>; };
-                DE_APP:   de_app   { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp APPLICATION>; };
-
-                DE_ENT:   de_ent   { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp RET>; };
-                DE_BSPC:  de_bspc  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp BSPC>; };
-                DE_DEL:   de_del   { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp DEL>; };
-                DE_INS:   de_ins   { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp INS>; };
-
-                DE_SPC:   de_spc   { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp SPACE>; };
-                DE_TG:    de_tg    { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp TAB>; }; /* optional placeholder if you want */
-
-                /* -------------------- 2) Navigation cluster (100% coverage) -------------------- */
-                DE_HOME:  de_home  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp HOME>; };
-                DE_END:   de_end   { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp END>; };
-                DE_PGUP:  de_pgup  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp PG_UP>; };
-                DE_PGDN:  de_pgdn  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp PG_DN>; };
-
-                DE_LEFT:  de_left  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp LEFT>; };
-                DE_DOWN:  de_down  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp DOWN>; };
-                DE_UP:    de_up    { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp UP>; };
-                DE_RIGHT: de_right { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp RIGHT>; };
-
-                /* -------------------- 3) Function row + system keys (100% coverage) -------------------- */
-                DE_F1:  de_f1  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp F1>; };
-                DE_F2:  de_f2  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp F2>; };
-                DE_F3:  de_f3  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp F3>; };
-                DE_F4:  de_f4  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp F4>; };
-                DE_F5:  de_f5  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp F5>; };
-                DE_F6:  de_f6  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp F6>; };
-                DE_F7:  de_f7  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp F7>; };
-                DE_F8:  de_f8  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp F8>; };
-                DE_F9:  de_f9  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp F9>; };
-                DE_F10: de_f10 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp F10>; };
-                DE_F11: de_f11 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp F11>; };
-                DE_F12: de_f12 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp F12>; };
-
-                DE_PSCR: de_pscr { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp PSCRN>; };
-                DE_SCRL: de_scrl { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp SCRLCK>; };
-                DE_PAUS: de_paus { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp PAUSE_BREAK>; };
-
-                /* -------------------- 4) Numpad (100% coverage) -------------------- */
-                DE_NLCK:   de_nlck   { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp KP_NUM>; };
-                DE_KP_SLSH: de_kp_slsh{ compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp KP_SLASH>; };
-                DE_KP_ASTR: de_kp_astr{ compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp KP_MULTIPLY>; };
-                DE_KP_MINS: de_kp_mins{ compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp KP_MINUS>; };
-                DE_KP_PLUS: de_kp_plus{ compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp KP_PLUS>; };
-                DE_KP_ENT:  de_kp_ent { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp KP_ENTER>; };
-
-                DE_KP0: de_kp0 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp KP_N0>; };
-                DE_KP1: de_kp1 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp KP_N1>; };
-                DE_KP2: de_kp2 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp KP_N2>; };
-                DE_KP3: de_kp3 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp KP_N3>; };
-                DE_KP4: de_kp4 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp KP_N4>; };
-                DE_KP5: de_kp5 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp KP_N5>; };
-                DE_KP6: de_kp6 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp KP_N6>; };
-                DE_KP7: de_kp7 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp KP_N7>; };
-                DE_KP8: de_kp8 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp KP_N8>; };
-                DE_KP9: de_kp9 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp KP_N9>; };
-
-                DE_KP_DOT: de_kp_dot { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp KP_DOT>; };
-
-                /* -------------------- 5) Letters (DE-visible; includes Y/Z swap) -------------------- */
-                /* Most letters are identical; we still provide DE_* for “use DE names everywhere”. */
-                DE_A: de_a { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp A>; };
-                DE_B: de_b { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp B>; };
-                DE_C: de_c { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp C>; };
-                DE_D: de_d { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp D>; };
-                DE_E: de_e { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp E>; };
-                DE_F: de_f { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp F>; };
-                DE_G: de_g { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp G>; };
-                DE_H: de_h { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp H>; };
-                DE_I: de_i { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp I>; };
-                DE_J: de_j { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp J>; };
-                DE_K: de_k { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp K>; };
-                DE_L: de_l { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp L>; };
-                DE_M: de_m { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp M>; };
-                DE_N: de_n { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp N>; };
-                DE_O: de_o { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp O>; };
-                DE_P: de_p { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp P>; };
-                DE_Q: de_q { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp Q>; };
-                DE_R: de_r { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp R>; };
-                DE_S: de_s { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp S>; };
-                DE_T: de_t { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp T>; };
-                DE_U: de_u { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp U>; };
-                DE_V: de_v { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp V>; };
-                DE_W: de_w { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp W>; };
-                DE_X: de_x { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp X>; };
-
-                /* Letters swapped by DE layout */
-                DE_Z: de_z { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp Y>; }; /* Z */
-                DE_Y: de_y { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp Z>; }; /* Y */
-
-                /* -------------------- 6) ISO-DE specific letters / keys -------------------- */
-                /* Umlauts on ANSI positions */
-                DE_OE: de_oe { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp SEMI>; }; /* ö */
-                DE_AE: de_ae { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp SQT>;  }; /* ä */
-                DE_UE: de_ue { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp LBKT>; }; /* ü */
-
-                /* Capital umlauts as direct outputs (optional; you had Ü) */
-                DE_OE_CAP: de_oe_cap { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp LS(SEMI)>; }; /* Ö */
-                DE_AE_CAP: de_ae_cap { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp LS(SQT)>;  }; /* Ä */
-                DE_UE_CAP: de_ue_cap { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp LBRC>; };     /* Ü (kept from your mapping) */
-
-                /* German ß is on US '-' key position */
-                DE_SS: de_ss { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp MINUS>; }; /* ß */
-
-                /* ISO key between LSHIFT and Y: < > |  (Windows DE via HID NUBS) */
-                DE_LT:   de_lt   { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp NUBS>; };       /* < */
-                DE_GT:   de_gt   { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp LS(NUBS)>; };  /* > */
-                DE_PIPE: de_pipe { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp RA(NUBS)>; };  /* | */
-
-                /* -------------------- 7) Number row (unshifted digits as-is) -------------------- */
-                DE_1: de_1 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp N1>; };
-                DE_2: de_2 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp N2>; };
-                DE_3: de_3 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp N3>; };
-                DE_4: de_4 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp N4>; };
-                DE_5: de_5 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp N5>; };
-                DE_6: de_6 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp N6>; };
-                DE_7: de_7 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp N7>; };
-                DE_8: de_8 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp N8>; };
-                DE_9: de_9 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp N9>; };
-                DE_0: de_0 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp N0>; };
-
-                /* DE number-row “symbols” (what you want to *see* / use in layers) */
-                DE_CARET: de_caret { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp GRAVE>; }; /* ^ (dead on DE) */
-                DE_DEG:   de_deg   { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp TILDE>; }; /* ° */
-
-                DE_EXCL:  de_excl  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp EXCL>; };  /* ! */
-                DE_DQUOT: de_dquot { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp AT>;   };  /* " */
-                DE_SECT:  de_sect  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp HASH>; };  /* § */
-                DE_DLLR:  de_dllr  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp DLLR>; };  /* $ */
-                DE_PRCNT: de_prcnt { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp PRCNT>;};  /* % */
-                DE_AMPS:  de_amps  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp CARET>;};  /* & */
-                DE_SLSH:  de_slsh  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp AMPS>; };  /* / */
-                DE_LPAR:  de_lpar  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp STAR>; };  /* ( */
-                DE_RPAR:  de_rpar  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp LPAR>; };  /* ) */
-                DE_EQUAL: de_equal { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp RPAR>; };  /* = */
-
-                /* ´ and ` (dead keys on DE) */
-                DE_ACUTE: de_acute { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp EQUAL>;}; /* ´ */
-                DE_GRAVE: de_grave { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp PLUS>; }; /* ` */
-
-                /* + * ~ */
-                DE_PLUS:  de_plus  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp RBKT>; }; /* + */
-                DE_ASTR:  de_astr  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp RBRC>; }; /* * */
-
-                /* # ' */
-                DE_HASH:  de_hash  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp BSLH>; }; /* # */
-                DE_APOS:  de_apos  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp PIPE>; }; /* ' */
-
-                /* ? */
-                DE_QMARK: de_qmark { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp UNDER>;}; /* ? */
-
-                /* -------------------- 8) Bottom-row punctuation , . -  (fix for your base-layer) -------------------- */
-                DE_COMMA: de_comma { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp COMMA>; };
-                DE_DOT:   de_dot   { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp DOT>; };
-
-                /* On Windows DE, HID FSLH corresponds to the DE '-' key */
-                DE_MINUS: de_minus { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp FSLH>;      }; /* - */
-                DE_UNDS:  de_unds  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp LS(FSLH)>; }; /* _ */
-
-                /* -------------------- 9) Convenience: common AltGr outputs on ISO-DE -------------------- */
-                DE_AT:    de_at    { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp RA(Q)>;  }; /* @ */
-                DE_EURO:  de_euro  { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp RA(E)>;  }; /* € */
-                DE_LBRC2: de_lbrc2 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp RA(N7)>; }; /* { */
-                DE_LBKT2: de_lbkt2 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp RA(N8)>; }; /* [ */
-                DE_RBKT2: de_rbkt2 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp RA(N9)>; }; /* ] */
-                DE_RBRC2: de_rbrc2 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp RA(N0)>; }; /* } */
-                DE_BSLH2: de_bslh2 { compatible = "zmk,behavior-key-press"; #binding-cells = <0>; bindings = <&kp RA(MINUS)>; }; /* \ (AltGr+ß) */
-        };
-
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
                         display-name = "Base";
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &DE_Z  &kp U  &kp I     &kp O   &kp P     &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H  &kp J  &kp K     &kp L   &DE_OE    &DE_AE
-   &kp LSHFT &DE_Y &kp X &kp C &kp V &kp B   &kp N  &kp M  &kp COMMA &kp DOT &DE_MINUS &kp ESC
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
+   &kp TAB    &kp DE_Q &kp DE_W &kp DE_E &kp DE_R &kp DE_T      &kp DE_Z  &kp DE_U  &kp DE_I    &kp DE_O     &kp DE_P         &kp BSPC
+   &kp LCTRL  &kp DE_A &kp DE_S &kp DE_D &kp DE_F &kp DE_G      &kp DE_H  &kp DE_J  &kp DE_K    &kp DE_L     &kp DE_O_UMLAUT  &kp DE_A_UMLAUT
+   &kp LSHFT  &kp DE_Y &kp DE_X &kp DE_C &kp DE_V &kp DE_B      &kp DE_N  &kp DE_M  &kp DE_COMMA &kp DE_DOT  &kp DE_MINUS     &kp ESC
+                         &kp LGUI &mo 1 &kp DE_SPACE            &kp RET   &mo 2     &kp RALT
                         >;
                 };
 
                 lower_layer {
                         display-name = "Lower";
                         bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                                &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+   &kp TAB     &kp DE_N1     &kp DE_N2     &kp DE_N3     &kp DE_N4     &kp DE_N5        &kp DE_N6  &kp DE_N7  &kp DE_N8  &kp DE_N9  &kp DE_N0  &kp BSPC
+   &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans     &trans
+   &kp LSHFT   &trans        &trans        &trans        &trans        &trans           &trans     &trans     &trans     &trans     &trans     &trans
+                          &kp LGUI       &trans       &kp DE_SPACE     &kp RET    &trans     &kp RALT
                         >;
                 };
 
                 raise_layer {
                         display-name = "Raise";
                         bindings = <
-   &kp  TAB  &DE_EXCL &DE_DQUOT &DE_SECT &kp DLLR &kp PRCNT   &DE_AMPS &DE_SLSH  &kp KP_MULTIPLY &DE_RPAR &DE_EQUAL &kp BSPC
-   &kp LCTRL &trans   &trans    &trans   &trans   &trans      &DE_SS   &DE_ACUTE &DE_UE          &DE_PLUS &DE_HASH  &DE_CARET
-   &kp LSHFT &trans   &trans    &trans   &trans   &trans      &DE_QMARK &DE_GRAVE &DE_UE_CAP     &DE_ASTR &DE_APOS  &DE_DEG
-                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans     &kp RALT
+   &kp TAB   &kp DE_EXCL  &kp DE_DQT   &kp DE_SECT  &kp DE_DLLR  &kp DE_PRCNT    &kp DE_AMPS   &kp DE_FSLH  &kp KP_MULTIPLY  &kp DE_RPAR  &kp DE_EQUAL  &kp BSPC
+   &kp LCTRL &trans       &trans       &trans       &trans       &trans          &kp DE_ESZETT &kp DE_ACUTE &kp DE_U_UMLAUT  &kp DE_PLUS  &kp DE_HASH   &kp DE_CARET
+   &kp LSHFT &trans       &trans       &trans       &trans       &trans          &kp DE_QMARK  &kp DE_GRAVE &kp DE_LBRC      &kp DE_STAR  &kp DE_APOS   &kp DE_DEG
+                         &kp LGUI   &trans   &kp DE_SPACE   &kp RET   &trans   &kp RALT
                         >;
                 };
 
