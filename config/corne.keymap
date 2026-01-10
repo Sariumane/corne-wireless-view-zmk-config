@@ -12,84 +12,17 @@
 
 / {
 	behaviors {
-		hm_a: hm_a {
+		hm_1: hm_1 {
 			compatible = "zmk,behavior-hold-tap";
-			label = "HM_A";
+			label = "HM_1";
 			#binding-cells = <2>;
-			flavor = "tap-preferred";
-			tapping-term-ms = <180>;
-			quick-tap-ms = <0>;
-			bindings = < &kp DE_A &kp LCTRL >;
-		};
 
-		hm_s: hm_s {
-			compatible = "zmk,behavior-hold-tap";
-			label = "HM_S";
-			#binding-cells = <2>;
 			flavor = "tap-preferred";
 			tapping-term-ms = <180>;
 			quick-tap-ms = <0>;
-			bindings = < &kp DE_S &kp LALT >;
-		};
 
-		hm_d: hm_d {
-			compatible = "zmk,behavior-hold-tap";
-			label = "HM_D";
-			#binding-cells = <2>;
-			flavor = "tap-preferred";
-			tapping-term-ms = <180>;
-			quick-tap-ms = <0>;
-			bindings = < &kp DE_D &kp LGUI >;
-		};
-
-		hm_f: hm_f {
-			compatible = "zmk,behavior-hold-tap";
-			label = "HM_F";
-			#binding-cells = <2>;
-			flavor = "tap-preferred";
-			tapping-term-ms = <180>;
-			quick-tap-ms = <0>;
-			bindings = < &kp DE_F &kp LSHFT >;
-		};
-
-		hm_j: hm_j {
-			compatible = "zmk,behavior-hold-tap";
-			label = "HM_J";
-			#binding-cells = <2>;
-			flavor = "tap-preferred";
-			tapping-term-ms = <180>;
-			quick-tap-ms = <0>;
-			bindings = < &kp DE_J &kp RSHFT >;
-		};
-
-		hm_k: hm_k {
-			compatible = "zmk,behavior-hold-tap";
-			label = "HM_K";
-			#binding-cells = <2>;
-			flavor = "tap-preferred";
-			tapping-term-ms = <180>;
-			quick-tap-ms = <0>;
-			bindings = < &kp DE_K &kp RGUI >;
-		};
-
-		hm_l: hm_l {
-			compatible = "zmk,behavior-hold-tap";
-			label = "HM_L";
-			#binding-cells = <2>;
-			flavor = "tap-preferred";
-			tapping-term-ms = <180>;
-			quick-tap-ms = <0>;
-			bindings = < &kp DE_L &kp RALT >;
-		};
-
-		hm_oe: hm_oe {
-			compatible = "zmk,behavior-hold-tap";
-			label = "HM_OE";
-			#binding-cells = <2>;
-			flavor = "tap-preferred";
-			tapping-term-ms = <180>;
-			quick-tap-ms = <0>;
-			bindings = < &kp DE_O_UMLAUT &kp RCTRL >;
+			/* nur Behavior-Referenzen */
+			bindings = <&kp>, <&kp>;
 		};
 	};
 
@@ -99,9 +32,10 @@
 		default_layer {
 			display-name = "Base";
 			bindings = <
-				&kp TAB   &kp DE_Q &kp DE_W     &kp DE_E &kp DE_R &kp DE_T &kp DE_Z &kp DE_U &kp DE_I     &kp DE_O   &kp DE_P     &kp BSPC
-				&kp LCTRL &hm_a    &hm_s        &hm_d    &hm_f    &kp DE_G &kp DE_H &hm_j    &hm_k        &hm_l      &hm_oe       &kp DE_A_UMLAUT
-				&kp LSHFT &kp DE_Y &kp DE_X     &kp DE_C &kp DE_V &kp DE_B &kp DE_N &kp DE_M &kp DE_COMMA &kp DE_DOT &kp DE_MINUS &kp ESC
+				&kp TAB   &kp DE_Q &kp DE_W     &kp DE_E &kp DE_R &kp DE_T &kp DE_Z &kp DE_U &kp DE_I     &kp DE_O      &kp DE_P       &kp BSPC
+				&kp LCTRL &hm_1 LCTRL DE_A      &hm_1 LALT DE_S   &hm_1 LGUI DE_D  &hm_1 LSHFT DE_F  &kp DE_G &kp DE_H
+				          &hm_1 RSHFT DE_J      &hm_1 RGUI DE_K   &hm_1 RALT DE_L  &hm_1 RCTRL DE_O_UMLAUT  &kp DE_A_UMLAUT
+				&kp LSHFT &kp DE_Y &kp DE_X     &kp DE_C &kp DE_V &kp DE_B &kp DE_N &kp DE_M &kp DE_COMMA &kp DE_DOT    &kp DE_MINUS   &kp ESC
 				&kp LGUI  &mo 1    &kp DE_SPACE &kp RET  &mo 2    &kp RALT
 			>;
 		};
