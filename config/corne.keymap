@@ -2,7 +2,100 @@
  * Copyright (c) 2020 The ZMK Contributors
  *
  * SPDX-License-Identifier: MIT
- */
+ *
+
+	!!! Combos sind eigener block und kein behavior!!!
+	combos {
+		compatible = "zmk,combos";
+
+		A + S gleichzeitig = ESC 
+		combo_esc {
+			timeout-ms = <40>;
+			key-positions = <12 13>; /* <- physische Key-Positionen 
+			bindings = <&kp ESC>;
+		};
+	};
+
+	behaviors{
+		hold-tap beispiel
+		ht: ht {
+			compatible = "zmk,behavior-hold-tap";
+			label = "HT";
+			#binding-cells = <2>;   -> anzahl der argumente beim aufruf in der keymap
+
+			 Welche Behaviors werden genutzt 
+			bindings = <&kp>, <&kp>;
+
+			 typische Defaults 
+			flavor = "balanced";
+			tapping-term-ms = <200>;
+		};
+
+
+		tap-dance beispiel das einen hold-tap aufruft:
+		ht_ctrl_esc: ht_ctrl_esc {
+			compatible = "zmk,behavior-hold-tap";
+			label = "HT_CTRL_ESC";
+			#binding-cells = <2>;
+			bindings = <&kp>, <&kp>;
+			tapping-term-ms = <200>;
+		};
+
+		td_example: td_example {
+			compatible = "zmk,behavior-tap-dance";
+			label = "TD_EXAMPLE";
+			#binding-cells = <0>;
+			tapping-term-ms = <200>;
+			bindings = <&kp A>, <&ht_ctrl_esc LCTRL ESC>;
+		};
+
+
+		mod-morph beispiel
+		mm_sc_col: mm_sc_col {
+			compatible = "zmk,behavior-mod-morph";
+			label = "MM_SC_COL";
+			#binding-cells = <0>;
+			mods = <MOD_LSFT>;
+			bindings = <&kp SEMI>, <&kp COLON>;
+		};
+
+		
+		macro beispiel:
+		m_parens: m_parens {
+			compatible = "zmk,behavior-macro";
+			label = "M_PARENS";
+			#binding-cells = <0>;
+			bindings = <
+				&kp LPAR
+				&kp RPAR
+			>;
+		};
+
+		In behavior-macro gibt es diese Bausteine:
+		&kp X → tap (press + release)
+		&macro_press &kp X
+		&macro_release &kp X
+		&macro_tap &kp X (explizit, selten nötig)
+		&macro_pause <ms>
+		
+	}
+
+
+
+	layer semantik:
+	&mo 1 		-> toggle layer 1 on hold
+	&lt 1 space -> layer 1 on hold, space on tap
+	&tog 1		-> quasi nutzlos weil stapelt layer
+	&sl 1		-> aktiviert layer für einen key stroke
+	&to 1		-> toggle den man benutzen kann
+
+	anderes:
+	&caps_word	-> wenn ausgelöst alles großgeschrieben, sobald eine nicht alphanumerische taste gedrückt wird.
+	&sk LSHFT	-> nächster key bekommt diesen mod 
+	&kt LALT	-> toggled den key
+*/
+
+
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
