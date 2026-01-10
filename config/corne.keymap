@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2020 The ZMK Contributors
  *
  * SPDX-License-Identifier: MIT
@@ -173,8 +173,24 @@
             >;
         };
 
-        extra_1 { status = "reserved"; };
+        num {
+            display-name = "num";
+            bindings = <
+&kp TAB    &kp DE_EXCL  &kp DE_DQT  &kp DE_SECT  &kp DE_DLLR  &kp DE_PRCNT    &kp DE_AMPS    &kp DE_FSLH   &kp KP_MULTIPLY  &kp DE_RPAR  &kp DE_EQUAL  &kp BSPC
+&kp LCTRL  &trans       &trans      &trans       &trans       &trans          &kp DE_ESZETT  &kp DE_ACUTE  &kp DE_U_UMLAUT  &kp DE_PLUS  &kp DE_HASH   &kp DE_CARET
+&kp LSHFT  &trans       &trans      &trans       &trans       &trans          &kp DE_QMARK   &kp DE_GRAVE  &kp DE_LBRC      &kp DE_STAR  &kp DE_APOS   &kp DE_DEG
+                                    &kp LGUI     &trans       &kp DE_SPACE    &kp RET        &trans        &kp RALT
+            >;
+        };
 
-        extra_2 { status = "reserved"; };
+		func {
+            display-name = "func";
+            bindings = <
+&kp TAB    &kp DE_EXCL  &kp DE_DQT  &kp DE_SECT  &kp DE_DLLR  &kp DE_PRCNT    &kp DE_AMPS    &kp DE_FSLH   &kp KP_MULTIPLY  &kp DE_RPAR  &kp DE_EQUAL  &kp BSPC
+&kp LCTRL  &trans       &trans      &trans       &trans       &trans          &kp DE_ESZETT  &kp DE_ACUTE  &kp DE_U_UMLAUT  &kp DE_PLUS  &kp DE_HASH   &kp DE_CARET
+&kp LSHFT  &trans       &trans      &trans       &trans       &trans          &kp DE_QMARK   &kp DE_GRAVE  &kp DE_LBRC      &kp DE_STAR  &kp DE_APOS   &kp DE_DEG
+                                    &kp LGUI     &trans       &kp DE_SPACE    &kp RET        &trans        &kp RALT
+            >;
+        };
     };
 };
