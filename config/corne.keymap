@@ -20,7 +20,7 @@
 			flavor = "tap-preferred";
 			tapping-term-ms = <180>;
 			quick-tap-ms = <0>;
-			bindings = <&kp DE_A &kp LCTRL>;
+			bindings = <&kp DE_A>, <&kp LCTRL>;
 		};
 		
 		hm_s: hm_s {
@@ -30,7 +30,7 @@
 			flavor = "tap-preferred";
 			tapping-term-ms = <180>;
 			quick-tap-ms = <0>;
-			bindings = <&kp DE_S &kp LALT>;
+			bindings = <&kp DE_S>, <&kp LALT>;
 		};
 		
 		hm_d: hm_d {
@@ -40,7 +40,7 @@
 			flavor = "tap-preferred";
 			tapping-term-ms = <180>;
 			quick-tap-ms = <0>;
-			bindings = <&kp DE_D &kp LGUI>;
+			bindings = <&kp DE_D>, <&kp LGUI>;
 		};
 		
 		hm_f: hm_f {
@@ -50,7 +50,7 @@
 			flavor = "tap-preferred";
 			tapping-term-ms = <180>;
 			quick-tap-ms = <0>;
-			bindings = <&kp DE_F &kp LSHFT>;
+			bindings = <&kp DE_F>, <&kp LSHFT>;
 		};
 		
 		hm_j: hm_j {
@@ -60,7 +60,7 @@
 			flavor = "tap-preferred";
 			tapping-term-ms = <180>;
 			quick-tap-ms = <0>;
-			bindings = <&kp DE_J &kp RSHFT>;
+			bindings = <&kp DE_J>, <&kp RSHFT>;
 		};
 		
 		hm_k: hm_k {
@@ -70,7 +70,7 @@
 			flavor = "tap-preferred";
 			tapping-term-ms = <180>;
 			quick-tap-ms = <0>;
-			bindings = <&kp DE_K &kp RGUI>;
+			bindings = <&kp DE_K>, <&kp RGUI>;
 		};
 		
 		hm_l: hm_l {
@@ -80,7 +80,7 @@
 			flavor = "tap-preferred";
 			tapping-term-ms = <180>;
 			quick-tap-ms = <0>;
-			bindings = <&kp DE_L &kp RALT>;
+			bindings = <&kp DE_L>, <&kp RALT>;
 		};
 		
 		hm_oe: hm_oe {
@@ -90,7 +90,7 @@
 			flavor = "tap-preferred";
 			tapping-term-ms = <180>;
 			quick-tap-ms = <0>;
-			bindings = <&kp DE_O_UMLAUT &kp RCTRL>;
+			bindings = <&kp DE_O_UMLAUT>, <&kp RCTRL>;
 		};
 	};
 	
