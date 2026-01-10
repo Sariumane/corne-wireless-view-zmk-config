@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Format current keymap",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy", "Bypass",
+        "-File", "${workspaceFolder}\\tools\\format-keymap.ps1",
+        "${file}"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}
