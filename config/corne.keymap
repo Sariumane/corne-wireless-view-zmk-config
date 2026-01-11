@@ -370,7 +370,7 @@
             bindings = <
 &kp DE_CARET  &kp DE_HASH   &morph_perc_sect  &morph_dollar_euro   &kp DE_AMPERSAND      &kp DE_AT_SIGN         &none  &none       &none      &none          &none  &none
 &kp DE_GRAVE  &kp DE_PIPE   &kp DE_BACKSLASH  &moprh_bracket       &morph_brace          &morph_paran           &none  &kp RSHIFT  &kp LCTRL  &kp RIGHT_ALT  &none  &none
-&kp DE_TILDE  &kp DE_ASTRK  &kp DE_SLASH      &kp DE_MINUS         &kp DE_PLUS           &kp DE_GREATER_THAN    &none  &none       &none      &none          &none  &none
+&kp DE_TILDE  &kp DE_ASTRK  &kp DE_SLASH      &kp DE_PLUS          &kp DE_MINUS          &kp DE_GREATER_THAN    &none  &none       &none      &none          &none  &none
                                               &kp DE_SINGLE_QUOTE  &kp DE_DOUBLE_QUOTES  &kp DE_SPACE           &none  &none       &none
             >;
         };
