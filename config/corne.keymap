@@ -12,7 +12,9 @@
             flavor = "tap-preferred";
             tapping-term-ms = <180>;
             quick-tap-ms = <0>;
-            bindings = <&kp>, <&kp>;
+
+            /* FIX: no comma, two behavior refs in one <> */
+            bindings = <&kp &kp>;
         };
 
         td_u_ue: td_u_ue {
@@ -36,31 +38,33 @@
             bindings = <&kp DE_PERIOD>, <&ht_1 DE_EXCLAMATION DE_QUESTION>;
         };
 
+        /*
+         * Klammern: Mod-Morph soll bleiben (Shift als Selector),
+         * aber Ausgabe über Makros, damit AltGr/Shift nicht "leaken".
+         */
         morph_brace: morph_brace {
             compatible = "zmk,behavior-mod-morph";
             label = "MORPH_BRACE";
-            bindings = <&kp DE_LEFT_BRACE>, <&kp DE_RIGHT_BRACE>;
-
             #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            /* FIX: DT-sichere Mods-Liste */
+            mods = <MOD_LSFT MOD_RSFT>;
+            bindings = <&lbrace>, <&rbrace>;
         };
 
         morph_paren: morph_paren {
             compatible = "zmk,behavior-mod-morph";
             label = "MORPH_PAREN";
-            bindings = <&kp DE_LEFT_PARENTHESIS>, <&kp DE_RIGHT_PARENTHESIS>;
-
             #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <MOD_LSFT MOD_RSFT>;
+            bindings = <&lparen>, <&rparen>;
         };
 
         morph_bracket: morph_bracket {
             compatible = "zmk,behavior-mod-morph";
             label = "MORPH_BRACKET";
-            bindings = <&kp DE_LEFT_BRACKET>, <&kp DE_RIGHT_BRACKET>;
-
             #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <MOD_LSFT MOD_RSFT>;
+            bindings = <&lbracket>, <&rbracket>;
         };
 
         morph_slash: morph_slash {
@@ -69,7 +73,7 @@
             bindings = <&kp DE_SLASH>, <&kp DE_BACKSLASH>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <MOD_LSFT MOD_RSFT>;
         };
 
         morph_dollar_euro: morph_dollar_euro {
@@ -78,7 +82,7 @@
             bindings = <&kp DE_DOLLAR>, <&kp DE_EURO>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <MOD_LSFT MOD_RSFT>;
         };
 
         morph_perc_sect: morph_perc_sect {
@@ -87,7 +91,7 @@
             bindings = <&kp DE_PERCENT>, <&kp DE_SECT>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <MOD_LSFT MOD_RSFT>;
         };
 
         td_num: td_num {
@@ -213,6 +217,78 @@
             >;
             label = "MACRO_ALT_F4";
         };
+
+        /*
+         * NEW: robust bracket/brace/paren macros (Shift is still the selector via mod-morph).
+         * Notes:
+         * - {} and [] on DE use AltGr (RALT) + number row keys.
+         * - () uses Shift+8 / Shift+9; we emit '(' via explicit shift press/release,
+         *   but emit ')' as plain 9 because Shift is already held for the morphed variant.
+         */
+
+        lbrace: lbrace {
+            compatible = "zmk,behavior-macro";
+            label = "LBRACE";
+            #binding-cells = <0>;
+            bindings = <
+                &macro_press   &kp RALT
+                &macro_tap     &kp DE_N7
+                &macro_release &kp RALT
+            >;
+        };
+
+        rbrace: rbrace {
+            compatible = "zmk,behavior-macro";
+            label = "RBRACE";
+            #binding-cells = <0>;
+            bindings = <
+                &macro_press   &kp RALT
+                &macro_tap     &kp DE_N0
+                &macro_release &kp RALT
+            >;
+        };
+
+        lbracket: lbracket {
+            compatible = "zmk,behavior-macro";
+            label = "LBRACKET";
+            #binding-cells = <0>;
+            bindings = <
+                &macro_press   &kp RALT
+                &macro_tap     &kp DE_N8
+                &macro_release &kp RALT
+            >;
+        };
+
+        rbracket: rbracket {
+            compatible = "zmk,behavior-macro";
+            label = "RBRACKET";
+            #binding-cells = <0>;
+            bindings = <
+                &macro_press   &kp RALT
+                &macro_tap     &kp DE_N9
+                &macro_release &kp RALT
+            >;
+        };
+
+        lparen: lparen {
+            compatible = "zmk,behavior-macro";
+            label = "LPAREN";
+            #binding-cells = <0>;
+            bindings = <
+                &macro_press   &kp LSHIFT
+                &macro_tap     &kp DE_N8
+                &macro_release &kp LSHIFT
+            >;
+        };
+
+        rparen: rparen {
+            compatible = "zmk,behavior-macro";
+            label = "RPAREN";
+            #binding-cells = <0>;
+            bindings = <
+                &macro_tap     &kp DE_N9
+            >;
+        };
     };
 
     keymap {
@@ -224,7 +300,7 @@
                 &none           &kp DE_Q         &kp DE_W         &kp DE_E          &kp DE_R          &kp DE_T         &td_z_sz      &td_u_ue          &kp DE_I          &kp DE_O         &kp DE_P                &kp DE_U_UMLAUT
                 &td_num         &ht_1 LGUI DE_A  &ht_1 LALT DE_S  &ht_1 LCTRL DE_D  &ht_1 LSHFT DE_F  &kp DE_G         &kp DE_H      &ht_1 RSHFT DE_J  &ht_1 RCTRL DE_K  &ht_1 RALT DE_L  &ht_1 RGUI DE_O_UMLAUT  &kp DE_A_UMLAUT
                 &td_func        &kp DE_Y         &kp DE_X         &kp DE_C          &kp DE_V          &kp DE_B         &kp DE_N      &kp DE_M          &kp DE_COMMA      &td_dot          &kp DE_MINUS            &to 5
-                                                                  &kp ESC      &mo 1             &kp BACKSPACE    &kp DE_SPACE  &mo 2             &kp TAB
+                                                                  &kp ESC          &mo 1             &kp BACKSPACE    &kp DE_SPACE  &mo 2             &kp TAB
             >;
         };
 
@@ -241,9 +317,9 @@
         sym {
             display-name = "sym";
             bindings = <
-                &kp DE_CARET  &kp DE_HASH   &morph_perc_sect  &morph_dollar_euro   &kp DE_AMPERSAND      &kp DE_AT_SIGN         &none  &none       &none      &none          &none  &none
-                &kp DE_GRAVE  &kp DE_PIPE   &kp DE_BACKSLASH  &morph_bracket       &morph_brace          &morph_paren           &none  &kp RSHIFT  &kp LCTRL  &kp RIGHT_ALT  &none  &none
-                &kp DE_TILDE  &kp DE_ASTRK  &kp DE_SLASH      &kp DE_PLUS          &kp DE_MINUS          &kp DE_GREATER_THAN    &none  &none       &none      &none          &none  &none
+                &kp DE_CARET  &kp DE_HASH   &morph_perc_sect      &morph_dollar_euro   &kp DE_AMPERSAND      &kp DE_AT_SIGN         &none  &none       &none      &none          &none  &none
+                &kp DE_GRAVE  &kp DE_PIPE   &kp DE_BACKSLASH      &morph_bracket       &morph_brace          &morph_paren           &none  &kp RSHIFT  &kp LCTRL  &kp RIGHT_ALT  &none  &none
+                &kp DE_TILDE  &kp DE_ASTRK  &kp DE_SLASH          &kp DE_PLUS          &kp DE_MINUS          &kp DE_GREATER_THAN    &none  &none       &none      &none          &none  &none
                                                               &kp DE_SINGLE_QUOTE  &kp DE_DOUBLE_QUOTES  &kp DE_SPACE           &none  &none       &none
             >;
         };
