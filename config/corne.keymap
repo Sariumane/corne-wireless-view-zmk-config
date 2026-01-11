@@ -3,7 +3,7 @@
  *
  * SPDX-License-Identifier: MIT
  *
-
+ *
 	!!! Combos sind eigener block und kein behavior!!!
 	combos {
 		compatible = "zmk,combos";
@@ -133,7 +133,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_DOT";
             #binding-cells = <0>;
-            bindings = <&kp DE_DQT>, <&ht_1 DE_EXCLAMATION DE_QUESTION>;
+            bindings = <&kp DE_PERIOD>, <&ht_1 DE_EXCLAMATION DE_QUESTION>;
         };
 
         morph_brace: morph_brace {
@@ -142,27 +142,25 @@
             bindings = <&kp DE_LEFT_BRACE>, <&kp DE_RIGHT_BRACE>;
 
             #binding-cells = <0>;
-            mods = <(MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        /* typo-fix: paran -> paren */
         morph_paren: morph_paren {
             compatible = "zmk,behavior-mod-morph";
             label = "MORPH_PAREN";
             bindings = <&kp DE_LEFT_PARENTHESIS>, <&kp DE_RIGHT_PARENTHESIS>;
 
             #binding-cells = <0>;
-            mods = <(MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        /* typo-fix: moprh -> morph */
         morph_bracket: morph_bracket {
             compatible = "zmk,behavior-mod-morph";
             label = "MORPH_BRACKET";
             bindings = <&kp DE_LEFT_BRACKET>, <&kp DE_RIGHT_BRACKET>;
 
             #binding-cells = <0>;
-            mods = <(MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         morph_slash: morph_slash {
@@ -171,7 +169,7 @@
             bindings = <&kp DE_SLASH>, <&kp DE_BACKSLASH>;
 
             #binding-cells = <0>;
-            mods = <(MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         morph_dollar_euro: morph_dollar_euro {
@@ -180,7 +178,7 @@
             bindings = <&kp DE_DOLLAR>, <&kp DE_EURO>;
 
             #binding-cells = <0>;
-            mods = <(MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         morph_perc_sect: morph_perc_sect {
@@ -189,7 +187,7 @@
             bindings = <&kp DE_PERCENT>, <&kp DE_SECT>;
 
             #binding-cells = <0>;
-            mods = <(MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         td_num: td_num {
@@ -233,7 +231,7 @@
             #binding-cells = <0>;
             bindings = <
                 &macro_press   &kp LCTRL
-                &macro_tap     &kp P
+                &macro_tap     &kp V
                 &macro_release &kp LCTRL
             >;
             label = "PASTE";
