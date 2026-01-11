@@ -221,10 +221,10 @@
         default_layer {
             display-name = "Base";
             bindings = <
-                &none           &kp DE_Q         &kp DE_W         &kp DE_E          &kp DE_R          &kp DE_T         &td_z_sz      &td_u_ue          &kp DE_I          &kp DE_O         &kp DE_P                &kp DE_A
-                &kp DE_SPACE    &ht_1 LGUI DE_A  &ht_1 LALT DE_S  &ht_1 LCTRL DE_D  &ht_1 LSHFT DE_F  &kp DE_G         &kp DE_H      &ht_1 RSHFT DE_J  &ht_1 RCTRL DE_K  &ht_1 RALT DE_L  &ht_1 RGUI DE_O_UMLAUT  &kp DE_A_UMLAUT
-                &kp DE_SPACE    &kp DE_Y         &kp DE_X         &kp DE_C          &kp DE_V          &kp DE_B         &kp DE_N      &kp DE_M          &kp DE_COMMA      &td_dot          &kp DE_MINUS            &kp DE_SPACE
-                                                                  &kp DE_SPACE      &mo 1             &kp BACKSPACE    &kp DE_SPACE  &mo 2             &bt BT_CLR
+                &none           &kp DE_Q         &kp DE_W         &kp DE_E          &kp DE_R          &kp DE_T         &td_z_sz      &td_u_ue          &kp DE_I          &kp DE_O         &kp DE_P                &kp DE_U_UMLAUT
+                &td_num         &ht_1 LGUI DE_A  &ht_1 LALT DE_S  &ht_1 LCTRL DE_D  &ht_1 LSHFT DE_F  &kp DE_G         &kp DE_H      &ht_1 RSHFT DE_J  &ht_1 RCTRL DE_K  &ht_1 RALT DE_L  &ht_1 RGUI DE_O_UMLAUT  &kp DE_A_UMLAUT
+                &td_func        &kp DE_Y         &kp DE_X         &kp DE_C          &kp DE_V          &kp DE_B         &kp DE_N      &kp DE_M          &kp DE_COMMA      &td_dot          &kp DE_MINUS            &to 5
+                                                                  &kp ESC      &mo 1             &kp BACKSPACE    &kp DE_SPACE  &mo 2             &kp TAB
             >;
         };
 
@@ -252,7 +252,7 @@
             display-name = "num";
             bindings = <
                 &none   &none     &none     &kp DE_MINUS  &kp DE_PLUS   &none           &none          &kp DE_N7     &kp DE_N8  &kp DE_N9  &kp DE_PLUS   &kp DE_MINUS
-                &tog 0  &kp LGUI  &kp LALT  &kp LCTRL     &kp LSHFT     &kp DE_EQUAL    &none          &kp DE_N4     &kp DE_N5  &kp DE_N6  &kp DE_ASTRK  &kp DE_SLASH
+                &to 0   &kp LGUI  &kp LALT  &kp LCTRL     &kp LSHFT     &kp DE_EQUAL    &none          &kp DE_N4     &kp DE_N5  &kp DE_N6  &kp DE_ASTRK  &kp DE_SLASH
                 &none   &none     &none     &kp DE_SLASH  &kp DE_ASTRK  &none           &kp DE_PERIOD  &kp DE_N1     &kp DE_N2  &kp DE_N3  &kp DE_EQUAL  &none
                                             &none         &none         &none           &kp RET        &kp DE_COMMA  &kp DE_N0
             >;
@@ -263,7 +263,7 @@
             bindings = <
                 &none  &none     &none     &none      &none       &none       &kp F9   &kp F10  &kp F11  &kp F12  &none  &none
                 &none  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHIFT  &none       &kp F5   &kp F6   &kp F7   &kp F8   &none  &none
-                &tog 0  &none    &none     &none      &none       &none       &kp F1   &kp F2   &kp F3   &kp F4   &none  &none
+                &to 0  &none     &none     &none      &none       &none       &kp F1   &kp F2   &kp F3   &kp F4   &none  &none
                                            &none      &none       &kp LGUI    &alt_f4  &none    &none
             >;
         };
@@ -273,7 +273,7 @@
             bindings = <
                 &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4  &bt BT_CLR    &none       &none  &none  &none  &none  &bt BT_CLR_ALL
                 &none          &none          &none          &none          &none          &none         &none       &none  &none  &none  &none  &none
-                &none          &none          &none          &none          &none          &none         &none       &none  &none  &none  &none  &tog 0
+                &none          &none          &none          &none          &none          &none         &none       &none  &none  &none  &none  &to 0
                                                              &none          &none          &bt BT_PRV    &bt BT_NXT  &none  &none
             >;
         };
