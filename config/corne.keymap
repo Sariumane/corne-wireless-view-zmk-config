@@ -349,6 +349,7 @@
         };
 
         num {
+			display-name = "num";
             bindings = <
 &none  &none     &none     &kp DE_MINUS  &kp DE_PLUS   &none           &none          &kp DE_N7     &kp DE_N8  &kp DE_N9  &kp DE_PLUS   &kp DE_MINUS
 &to 0  &kp LGUI  &kp LALT  &kp LCTRL     &kp LSHFT     &kp DE_EQUAL    &none          &kp DE_N4     &kp DE_N5  &kp DE_N6  &kp DE_ASTRK  &kp DE_SLASH
@@ -358,6 +359,7 @@
         };
 
         func {
+			display-name = "func";
             bindings = <
 &none  &none     &none     &none      &none       &none       &kp F9   &kp F10  &kp F11  &kp F12  &none  &none
 &none  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHIFT  &none       &kp F5   &kp F6   &kp F7   &kp F8   &none  &none
