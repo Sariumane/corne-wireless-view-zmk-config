@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2020 The ZMK Contributors
  *
  * SPDX-License-Identifier: MIT
@@ -219,126 +219,99 @@
         copy: copy {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp C>,
-                <&macro_release>,
-                <&kp LCTRL>;
-
+            bindings = <
+                &macro_press   &kp LCTRL
+                &macro_tap     &kp C
+                &macro_release &kp LCTRL
+            >;
             label = "COPY";
         };
 
         paste: paste {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp V>,
-                <&macro_release>,
-                <&kp LCTRL>;
-
+            bindings = <
+                &macro_press   &kp LCTRL
+                &macro_tap     &kp V
+                &macro_release &kp LCTRL
+            >;
             label = "PASTE";
         };
 
         select_all: select_all {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp A>,
-                <&macro_release>,
-                <&kp LCTRL>;
-
+            bindings = <
+                &macro_press   &kp LCTRL
+                &macro_tap     &kp A
+                &macro_release &kp LCTRL
+            >;
             label = "SELECT_ALL";
         };
 
         cut: cut {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp X>,
-                <&macro_release>,
-                <&kp LCTRL>;
-
+            bindings = <
+                &macro_press   &kp LCTRL
+                &macro_tap     &kp X
+                &macro_release &kp LCTRL
+            >;
             label = "CUT";
         };
 
         undo: undo {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp DE_Z>,
-                <&macro_release>,
-                <&kp LCTRL>;
-
+            bindings = <
+                &macro_press   &kp LCTRL
+                &macro_tap     &kp DE_Z
+                &macro_release &kp LCTRL
+            >;
             label = "UNDO";
         };
 
         redo: redo {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp DE_Y>,
-                <&macro_release>,
-                <&kp LCTRL>;
-
+            bindings = <
+                &macro_press   &kp LCTRL
+                &macro_tap     &kp DE_Y
+                &macro_release &kp LCTRL
+            >;
             label = "REDO";
         };
 
         find: find {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp DE_F>,
-                <&macro_release>,
-                <&kp LCTRL>;
-
+            bindings = <
+                &macro_press   &kp LCTRL
+                &macro_tap     &kp DE_F
+                &macro_release &kp LCTRL
+            >;
             label = "FIND";
         };
 
         find_and_replace: find_and_replace {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp DE_H>,
-                <&macro_release>,
-                <&kp LCTRL>;
-
+            bindings = <
+                &macro_press   &kp LCTRL
+                &macro_tap     &kp DE_H
+                &macro_release &kp LCTRL
+            >;
             label = "FIND_AND_REPLACE";
         };
 
         alt_f4: macro_alt_f4 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LALT>,
-                <&macro_tap>,
-                <&kp F4>,
-                <&macro_release>,
-                <&kp LALT>;
-
+            bindings = <
+                &macro_press   &kp LALT
+                &macro_tap     &kp F4
+                &macro_release &kp LALT
+            >;
             label = "MACRO_ALT_F4";
         };
     };
@@ -397,6 +370,7 @@
         };
 
         bluetooth {
+            display-name = "bluetooth";
             bindings = <
 &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4  &bt BT_CLR    &none       &none  &none  &none  &none  &bt BT_CLR_ALL
 &none          &none          &none          &none          &none          &none         &none       &none  &none  &none  &none  &none
