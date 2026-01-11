@@ -142,7 +142,7 @@
             bindings = <&kp DE_LEFT_BRACE>, <&kp DE_RIGHT_BRACE>;
 
             #binding-cells = <0>;
-            mods = <(MOD_RCTL)>;
+            mods = <(MOD_RSFT)>;
         };
 
         morph_paran: morph_paran {
@@ -151,7 +151,7 @@
             bindings = <&kp DE_LEFT_PARENTHESIS>, <&kp DE_RIGHT_PARENTHESIS>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
+            mods = <(MOD_RSFT)>;
         };
 
         moprh_bracket: moprh_bracket {
@@ -160,7 +160,34 @@
             bindings = <&kp DE_LEFT_BRACKET>, <&kp DE_RIGHT_BRACKET>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        morph_slash: morph_slash {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MORPH_SLASH";
+            bindings = <&kp DE_SLASH>, <&kp DE_BACKSLASH>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        morph_dollar_euro: morph_dollar_euro {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MORPH_DOLLAR_EURO";
+            bindings = <&kp DE_DOLLAR>, <&kp DE_EURO>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        morph_perc_sect: morph_perc_sect {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MORPH_PERC_SECT";
+            bindings = <&kp DE_PERCENT>, <&kp DE_SECT>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RSFT)>;
         };
     };
 
@@ -313,10 +340,10 @@
         sym {
             display-name = "sym";
             bindings = <
-&none  &none  &none  &none           &none         &none           &none  &none       &none      &none          &none  &none
-&none  &none  &none  &moprh_bracket  &morph_brace  &morph_paran    &none  &kp LSHIFT  &kp LCTRL  &kp RIGHT_ALT  &none  &none
-&none  &none  &none  &none           &none         &none           &none  &none       &none      &none          &none  &none
-                     &none           &none         &kp DE_SPACE    &none  &none       &none
+&kp DE_CARET  &kp DE_HASH   &morph_perc_sect  &morph_dollar_euro   &kp DE_AMPERSAND      &kp DE_AT_SIGN         &none  &none       &none      &none          &none  &none
+&kp DE_GRAVE  &kp DE_PIPE   &kp DE_BACKSLASH  &moprh_bracket       &morph_brace          &morph_paran           &none  &kp RSHIFT  &kp LCTRL  &kp RIGHT_ALT  &none  &none
+&kp DE_TILDE  &kp DE_ASTRK  &kp DE_SLASH      &kp DE_MINUS         &kp DE_PLUS           &kp DE_GREATER_THAN    &none  &none       &none      &none          &none  &none
+                                              &kp DE_SINGLE_QUOTE  &kp DE_DOUBLE_QUOTES  &kp DE_SPACE           &none  &none       &none
             >;
         };
 
