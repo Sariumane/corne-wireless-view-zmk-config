@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2020 The ZMK Contributors
  *
  * SPDX-License-Identifier: MIT
@@ -8,10 +8,10 @@
 	combos {
 		compatible = "zmk,combos";
 
-		A + S gleichzeitig = ESC 
+		A + S gleichzeitig = ESC
 		combo_esc {
 			timeout-ms = <40>;
-			key-positions = <12 13>; /* <- physische Key-Positionen 
+			key-positions = <12 13>; /* <- physische Key-Positionen
 			bindings = <&kp ESC>;
 		};
 	};
@@ -23,10 +23,10 @@
 			label = "HT";
 			#binding-cells = <2>;   -> anzahl der argumente beim aufruf in der keymap
 
-			 Welche Behaviors werden genutzt 
+			 Welche Behaviors werden genutzt
 			bindings = <&kp>, <&kp>;
 
-			 typische Defaults 
+			 typische Defaults
 			flavor = "balanced";
 			tapping-term-ms = <200>;
 		};
@@ -59,7 +59,7 @@
 			bindings = <&kp SEMI>, <&kp COLON>;
 		};
 
-		
+
 		macro beispiel:
 		m_parens: m_parens {
 			compatible = "zmk,behavior-macro";
@@ -77,7 +77,7 @@
 		&macro_release &kp X
 		&macro_tap &kp X (explizit, selten nötig)
 		&macro_pause <ms>
-		
+
 	}
 
 
@@ -91,7 +91,7 @@
 
 	anderes:
 	&caps_word	-> wenn ausgelöst alles großgeschrieben, sobald eine nicht alphanumerische taste gedrückt wird.
-	&sk LSHFT	-> nächster key bekommt diesen mod 
+	&sk LSHFT	-> nächster key bekommt diesen mod
 	&kt LALT	-> toggled den key
 */
 
@@ -145,18 +145,20 @@
             mods = <(MOD_RSFT)>;
         };
 
-        morph_paran: morph_paran {
+        /* typo-fix: paran -> paren */
+        morph_paren: morph_paren {
             compatible = "zmk,behavior-mod-morph";
-            label = "MORPH_PARAN";
+            label = "MORPH_PAREN";
             bindings = <&kp DE_LEFT_PARENTHESIS>, <&kp DE_RIGHT_PARENTHESIS>;
 
             #binding-cells = <0>;
             mods = <(MOD_RSFT)>;
         };
 
-        moprh_bracket: moprh_bracket {
+        /* typo-fix: moprh -> morph */
+        morph_bracket: morph_bracket {
             compatible = "zmk,behavior-mod-morph";
-            label = "MOPRH_BRACKET";
+            label = "MORPH_BRACKET";
             bindings = <&kp DE_LEFT_BRACKET>, <&kp DE_RIGHT_BRACKET>;
 
             #binding-cells = <0>;
@@ -218,126 +220,99 @@
         copy: copy {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp C>,
-                <&macro_release>,
-                <&kp LCTRL>;
-
+            bindings = <
+                &macro_press   &kp LCTRL
+                &macro_tap     &kp C
+                &macro_release &kp LCTRL
+            >;
             label = "COPY";
         };
 
         paste: paste {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp P>,
-                <&macro_release>,
-                <&kp LCTRL>;
-
+            bindings = <
+                &macro_press   &kp LCTRL
+                &macro_tap     &kp P
+                &macro_release &kp LCTRL
+            >;
             label = "PASTE";
         };
 
         select_all: select_all {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp A>,
-                <&macro_release>,
-                <&kp LCTRL>;
-
+            bindings = <
+                &macro_press   &kp LCTRL
+                &macro_tap     &kp A
+                &macro_release &kp LCTRL
+            >;
             label = "SELECT_ALL";
         };
 
         cut: cut {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp X>,
-                <&macro_release>,
-                <&kp LCTRL>;
-
+            bindings = <
+                &macro_press   &kp LCTRL
+                &macro_tap     &kp X
+                &macro_release &kp LCTRL
+            >;
             label = "CUT";
         };
 
         undo: undo {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp DE_Z>,
-                <&macro_release>,
-                <&kp LCTRL>;
-
+            bindings = <
+                &macro_press   &kp LCTRL
+                &macro_tap     &kp DE_Z
+                &macro_release &kp LCTRL
+            >;
             label = "UNDO";
         };
 
         redo: redo {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp DE_Y>,
-                <&macro_release>,
-                <&kp LCTRL>;
-
+            bindings = <
+                &macro_press   &kp LCTRL
+                &macro_tap     &kp DE_Y
+                &macro_release &kp LCTRL
+            >;
             label = "REDO";
         };
 
         find: find {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp DE_F>,
-                <&macro_release>,
-                <&kp LCTRL>;
-
+            bindings = <
+                &macro_press   &kp LCTRL
+                &macro_tap     &kp DE_F
+                &macro_release &kp LCTRL
+            >;
             label = "FIND";
         };
 
         find_and_replace: find_and_replace {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp DE_H>,
-                <&macro_release>,
-                <&kp LCTRL>;
-
+            bindings = <
+                &macro_press   &kp LCTRL
+                &macro_tap     &kp DE_H
+                &macro_release &kp LCTRL
+            >;
             label = "FIND_AND_REPLACE";
         };
 
         alt_f4: macro_alt_f4 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LALT>,
-                <&macro_tap>,
-                <&kp F4>,
-                <&macro_release>,
-                <&kp LALT>;
-
+            bindings = <
+                &macro_press   &kp LALT
+                &macro_tap     &kp F4
+                &macro_release &kp LALT
+            >;
             label = "MACRO_ALT_F4";
         };
     };
@@ -369,7 +344,7 @@
             display-name = "sym";
             bindings = <
 &kp DE_CARET  &kp DE_HASH   &morph_perc_sect  &morph_dollar_euro   &kp DE_AMPERSAND      &kp DE_AT_SIGN         &none  &none       &none      &none          &none  &none
-&kp DE_GRAVE  &kp DE_PIPE   &kp DE_BACKSLASH  &moprh_bracket       &morph_brace          &morph_paran           &none  &kp RSHIFT  &kp LCTRL  &kp RIGHT_ALT  &none  &none
+&kp DE_GRAVE  &kp DE_PIPE   &kp DE_BACKSLASH  &morph_bracket       &morph_brace          &morph_paren           &none  &kp RSHIFT  &kp LCTRL  &kp RIGHT_ALT  &none  &none
 &kp DE_TILDE  &kp DE_ASTRK  &kp DE_SLASH      &kp DE_PLUS          &kp DE_MINUS          &kp DE_GREATER_THAN    &none  &none       &none      &none          &none  &none
                                               &kp DE_SINGLE_QUOTE  &kp DE_DOUBLE_QUOTES  &kp DE_SPACE           &none  &none       &none
             >;
